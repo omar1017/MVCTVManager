@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace TVManager_Domain
 {
-    internal class Attachment
+    public class Attachment
     {
+        public Guid AttachmentID { get; set; } = Guid.NewGuid();
+        public string Path {  get; set; }
+        public string Name { get; set; }
+        public string FileType {  get; set; }
+        public Attachment() { }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace TVManager_Domain
 {
-    internal class Language
+    public class Language
     {
+        public Guid LanguageID { get; set; } = Guid.NewGuid();
+        public string Name { get; set; }
+        public Language() { }
     }
 }
