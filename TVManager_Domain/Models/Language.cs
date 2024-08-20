@@ -8,8 +8,15 @@ namespace TVManager_Domain
 {
     public class Language
     {
-        public Guid LanguageID { get; set; } = Guid.NewGuid();
+        public Guid LanguageID { get; set; }
         public string Name { get; set; }
-        public Language() { }
+        public Language() {
+            this.LanguageID = Guid.NewGuid();
+        }
+        public Language(string name) 
+        { 
+            this.Name = name;
+            this.LanguageID = Guid.NewGuid();
+        }
     }
 }

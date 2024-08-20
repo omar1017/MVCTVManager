@@ -20,6 +20,11 @@ namespace TVManager_Infrastructure
 
             base.OnConfiguring(optionsBuilder);
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Language>().HasData(new Language("Arabic"), new Language("English"), new Language("France"));
+        }
         public TVManagerDBContext() { }
     }
 }

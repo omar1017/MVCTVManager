@@ -1,10 +1,19 @@
+using TVManager_Domain;
+using TVManager_Infrastructre.Interfaces;
+using TVManager_Infrastructure;
+using TVManager_Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+builder.Services.AddScoped<IRepository<Language>, GenericRepository<Language>>();
+builder.Services.AddScoped<IRepository<Attachment>, GenericRepository<Attachment>>();
+builder.Services.AddScoped<IRepository<TVShow>, GenericRepository<TVShow>>();
+builder.Services.AddDbContext<TVManagerDBContext>(ServiceLifetime.Scoped);
 
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
